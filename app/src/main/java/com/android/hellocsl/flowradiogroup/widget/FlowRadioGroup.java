@@ -2,7 +2,6 @@ package com.android.hellocsl.flowradiogroup.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.nfc.Tag;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -132,6 +131,7 @@ public class FlowRadioGroup extends ViewGroup {
      * Upon empty selection, the returned value is -1.</p>
      *
      * @return the unique id of the selected radio button in this group
+     *
      * @attr ref android.R.styleable#RadioGroup_checkedButton
      * @see #check(int)
      * @see #clearCheck()
@@ -179,6 +179,8 @@ public class FlowRadioGroup extends ViewGroup {
         int parentDesireHeight = 0;
         int maxChlidWidthWithMargin = 0;
         int maxChlidHeightWithMargin = 0;
+
+
         int childCount = getChildCount();
         if (childCount > 0) {
 
@@ -204,10 +206,6 @@ public class FlowRadioGroup extends ViewGroup {
                     //需要把margin计算在内
                     maxChlidWidthWithMargin = Math.max(maxChlidWidthWithMargin, child.getMeasuredWidth() + mlp.leftMargin + mlp.rightMargin);
                     maxChlidHeightWithMargin = Math.max(maxChlidHeightWithMargin, child.getMeasuredHeight() + mlp.bottomMargin + mlp.topMargin);
-                    if (DEBUG)
-                        Log.d(TAG, new StringBuilder().append("child index:" + i)
-                                .append("\ntopMargin" + mlp.topMargin)
-                                .append("\nbottomMargin:" + mlp.bottomMargin).toString());
                 }
 //                int forceWidthSpec = MeasureSpec.makeMeasureSpec(maxChlidWidthWithMargin, MeasureSpec.EXACTLY);
 //                int forceHeightSpec = MeasureSpec.makeMeasureSpec(maxChlidHeightWithMargin, MeasureSpec.EXACTLY);
@@ -269,8 +267,8 @@ public class FlowRadioGroup extends ViewGroup {
                             .append("\nleft:" + leftStartOffest)
                             .append("\ntop:" + topStartOffest).toString());
 
-                child.layout(leftStartOffest, topStartOffest, leftStartOffest + child.getMeasuredWidth() + mlp.rightMargin,
-                        topStartOffest + child.getMeasuredHeight() + mlp.bottomMargin);
+                child.layout(leftStartOffest, topStartOffest, leftStartOffest + child.getMeasuredWidth(),
+                        topStartOffest + child.getMeasuredHeight());
                 //计算当前行最大高度
                 rowHeight = Math.max(child.getMeasuredHeight() + mlp.topMargin + mlp.bottomMargin, rowHeight);
 

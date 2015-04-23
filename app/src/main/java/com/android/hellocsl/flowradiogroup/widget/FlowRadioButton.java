@@ -6,7 +6,7 @@ import android.widget.RadioButton;
 
 
 /**
- * Created by Administrator on 2015/4/22 0022.
+ * Created by hellocsl on 2015/4/22 0022.
  */
 public class FlowRadioButton extends RadioButton {
     private OnCheckedChangeListener mOnCheckedChangeWidgetListener;
@@ -38,7 +38,7 @@ public class FlowRadioButton extends RadioButton {
         mBroadcasting = false;
     }
 
-    public void setOnCheckedChangeWidgetListener(OnCheckedChangeListener listener) {
+    void setOnCheckedChangeWidgetListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeWidgetListener = listener;
     }
 }
